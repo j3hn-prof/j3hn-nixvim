@@ -2,18 +2,25 @@
 	description = "A nixvim configuration";
 
 	inputs = {
+		nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 		nixvim.url = "github:nix-community/nixvim";
+		nixvim.inputs.nixpkgs.follows = "nixpkgs";
 		flake-utils.url = "github:numtide/flake-utils";
 	};
 
-	outputs = { self, nixpkgs, nixvim, flake-utils, ... }: flake-utils.lib.eachDefaultSystem (system:
+	outputs = { nixpkgs, nixvim, flake-utils, ... }@inputs:
+	 flake-utils.lib.eachDefaultSystem (system:
 		let
-			pkgs = import nixpkgs { inherit system; };
-			neovim = nixvim.legacyPackages.${system}.makeNixvimWithModule {
+			nixvimLib = nixvim.liv.${system};
+			nixvimModule = {
 				inherit pkgs;
 				module = import ./config;
 			};
+			neovim = nixvim.legacyPackages.${system}.makeNixvimWithModule nixvimModule;
+			pkgs = import nixpkgs { inherit system; };
 		in {
-		packages.default = neovim;
-	});
+			checks.default = nixvimLib.check.mkTestDerivationFromNixvim nixvimModule;
+			packages.default = neovim;
+		}
+	);
 }
