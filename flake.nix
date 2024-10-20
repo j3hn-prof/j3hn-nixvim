@@ -11,7 +11,7 @@
 	outputs = { nixpkgs, nixvim, flake-utils, ... }@inputs:
 	 flake-utils.lib.eachDefaultSystem (system:
 		let
-			nixvimLib = nixvim.liv.${system};
+			nixvimLib = nixvim.lib.${system};
 			nixvimModule = {
 				inherit pkgs;
 				module = import ./config;
@@ -19,7 +19,7 @@
 			neovim = nixvim.legacyPackages.${system}.makeNixvimWithModule nixvimModule;
 			pkgs = import nixpkgs { inherit system; };
 		in {
-			checks.default = nixvimLib.check.mkTestDerivationFromNixvim nixvimModule;
+			checks.default = nixvimLib.check.mkTestDerivationFromNixvimModule nixvimModule;
 			packages.default = neovim;
 		}
 	);
