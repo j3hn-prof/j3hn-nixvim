@@ -3,8 +3,11 @@
 
 	inputs = {
 		nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+		home-manager.url = "github:nix-community/home-manager";
+		home-manager.inputs.nixpkgs.follows = "nixpkgs";
 		nixvim.url = "github:nix-community/nixvim";
 		nixvim.inputs.nixpkgs.follows = "nixpkgs";
+		nixvim.inputs.home-manager.follows = "home-manager";
 		flake-utils.url = "github:numtide/flake-utils";
 	};
 
