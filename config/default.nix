@@ -1,13 +1,15 @@
 {
-  imports = [ ./bufferline.nix ./base16.nix ./tree-sitter.nix ];
+  imports = [ ./bufferline.nix ./tree-sitter.nix ./themeing.nix ];
   config.opts = {
 		clipboard = "unnamedplus";
-		shiftwidth = 2;
-		tabstop = 2;
+		cmdheight = 0;
 		cursorline = true;
+		tabstop = 2;
+		number = true;
 		relativenumber = true;
-		numberwidth = 4;
-		scrolloff = 8;
 		mouse = "a";
-  };
+		numberwidth = 1;
+		scrolloff = 8;
+		shiftwidth = 2;
+	};
 }
