@@ -1,5 +1,5 @@
 {
-  imports = [ ./bufferline.nix ./tree-sitter.nix ./themeing.nix ];
+  imports = [ ./bufferline.nix ./tree-sitter.nix ./themeing.nix ./colorizer.nix ];
   config.opts = {
 		clipboard = "unnamedplus";
 		cmdheight = 0;
