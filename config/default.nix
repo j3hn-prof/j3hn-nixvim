@@ -1,8 +1,14 @@
 {
-  imports = [ ./bufferline.nix ./tree-sitter.nix ./themeing.nix ./colorizer.nix ];
+  imports = [
+		./bufferline.nix
+		./tree-sitter.nix
+		./lualine.nix
+		./themeing.nix 
+		./colorizer.nix
+	];
   config.opts = {
 		clipboard = "unnamedplus";
-		cmdheight = 0;
+		#cmdheight = 0;
 		cursorline = true;
 		tabstop = 2;
 		number = true;
