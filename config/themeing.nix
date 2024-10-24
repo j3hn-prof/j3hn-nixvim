@@ -16,7 +16,7 @@ in
 				vim.g.lightline = { colorscheme = "carbonfox" }
 			'';
 			settings.options.modules = {
-				treesitter = true;
+				neo-tree = true;
 				lightline = true;
 			};
 		};

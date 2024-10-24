@@ -4,6 +4,7 @@
 		./lightline.nix
 		./themeing.nix 
 		./colorizer.nix
+		./neo-tree.nix
 	];
   config.opts = {
 		clipboard = "unnamedplus";
