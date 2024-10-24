@@ -1,8 +1,7 @@
 {
   imports = [
-		./bufferline.nix
 		./tree-sitter.nix
-		./lualine.nix
+		./lightline.nix
 		./themeing.nix 
 		./colorizer.nix
 	];
