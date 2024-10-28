@@ -1,3 +1,0 @@
-{
-	plugins.lightline.enable=true;
-}

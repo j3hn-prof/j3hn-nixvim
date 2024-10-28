@@ -9,15 +9,19 @@ in
 	};
 
 	config = {
+		plugins.web-devicons.enable = true;
 		colorschemes.nightfox = {
 			enable = true;
 			flavor = "carbonfox";
 			luaConfig.post = lib.mkIf colorModule.lightline ''
 				vim.g.lightline = { colorscheme = "carbonfox" }
 			'';
-			settings.options.modules = {
-				neo-tree = true;
-				lightline = true;
+			settings.options = {
+				modules = {
+					neotree = true;
+					lightline = true;
+				};
+				module_default = false;
 			};
 		};
 		opts.stc = "%s%=%{v:relnum ? v:relnum : v:lnum}│";

@@ -1,7 +1,7 @@
 {
   imports = [
 		./tree-sitter.nix
-		./lightline.nix
+		./lualine.nix
 		./themeing.nix 
 		./colorizer.nix
 		./neo-tree.nix
