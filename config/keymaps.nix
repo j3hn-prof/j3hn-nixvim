@@ -22,7 +22,7 @@
           function()
             if vim.bo.modified then
               vim.cmd('write')
-							print("Wrote out to file")
+							print("Wrote out to file ",vim.api.nvim_buf_get_name(0))
             else
               print("Nothing to write")
             end
@@ -31,6 +31,7 @@
 			key = "<C-w>";
 			options = {
 				silent = true;
+				nowait = true;
 			};
 		}	
 	];
