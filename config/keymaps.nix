@@ -29,7 +29,7 @@
 							if char == vim.fn.char2nr('y') then
 								vim.cmd("quitall!")
 							else
-								vim.api.nvim_echo({{"Quit canceled. Buffers are still unsaved.", "WarningMsg"}}, true, {})
+								vim.api.nvim_echo({{"Quit canceled. Buffers are still unsaved.", "Italic"}}, true, {})
 							end
 						else
 							vim.cmd("quit")
@@ -54,7 +54,7 @@
 							}, true, {})
 						else
               vim.api.nvim_echo({
-  							{"Nothing to write", "Italic"},
+  							{"Nothing to write.", "Italic"},
 							}, true, {})
 
             end
