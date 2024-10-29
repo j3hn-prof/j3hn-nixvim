@@ -1,12 +1,12 @@
+let
+	nixFromDir = inDir: map (fileName: inDir + "/${fileName}") (builtins.filter (attrName: builtins.match ".*\\.nix$" attrName != null) (builtins.attrNames (builtins.readDir inDir)));
+in
 {
   imports = [
 		./keymaps.nix
-		./tree-sitter.nix
-		./lualine.nix
 		./themeing.nix 
-		./colorizer.nix
-		./neo-tree.nix
-	];
+	] 
+	++ nixFromDir ./plugins;
   config.opts = {
 		clipboard = "unnamedplus";
 		#cmdheight = 0;
