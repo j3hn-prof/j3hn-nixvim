@@ -1,3 +1,3 @@
 {
-	plugins.nvim-colorizer.enable = true;
+  plugins.nvim-colorizer.enable = true;
 }
