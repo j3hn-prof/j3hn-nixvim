@@ -17,14 +17,20 @@
 		}
 		{
 			action = 
-				(helpers.mkRaw # lua
+				(helpers.mkRaw
         ''
           function()
             if vim.bo.modified then
               vim.cmd('write')
-							print("Wrote out to file ",vim.api.nvim_buf_get_name(0))
-            else
-              print("Nothing to write")
+							vim.api.nvim_echo({
+  							{"Wrote out to file: ", "Normal"},
+								{vim.api.nvim_buf_get_name(0), "Bold"}
+							}, true, {})
+						else
+              vim.api.nvim_echo({
+  							{"Nothing to write", "Italic"},
+							}, true, {})
+
             end
           end
         '');
