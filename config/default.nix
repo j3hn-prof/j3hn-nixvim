@@ -2,9 +2,11 @@ let
 	nixFromDir = inDir: map (fileName: inDir + "/${fileName}") (builtins.filter (attrName: builtins.match ".*\\.nix$" attrName != null) (builtins.attrNames (builtins.readDir inDir)));
 in
 {
-  imports = [
+  imports =
+	[
 		./keymaps.nix
 		./themeing.nix 
+		./lsps
 	] 
 	++ nixFromDir ./plugins;
   config.opts = {

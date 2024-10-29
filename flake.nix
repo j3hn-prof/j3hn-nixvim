@@ -11,7 +11,7 @@
 		flake-utils.url = "github:numtide/flake-utils";
 	};
 
-	outputs = { nixpkgs, nixvim, flake-utils, ... }@inputs:
+	outputs = { nixpkgs, nixvim, flake-utils, ... }:
 	 flake-utils.lib.eachDefaultSystem (system:
 		let
 			nixvimLib = nixvim.lib.${system};
