@@ -1,6 +1,6 @@
 {
   imports = [
-		./keymap.nix
+		./keymaps.nix
 		./tree-sitter.nix
 		./lualine.nix
 		./themeing.nix 
