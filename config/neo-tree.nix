@@ -1,7 +1,7 @@
 {
 	plugins.neo-tree = {
 		enable = true;
-		openOnSetupFile = true;
-    autoReloadOnWrite = true;
+		closeIfLastWindow = true;
+    enableRefreshOnWrite = true;
 	};
 }
