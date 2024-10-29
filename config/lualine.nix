@@ -3,6 +3,14 @@
     enable = true;
     settings = {
       options = {
+				component_separators = {
+          left = "▏";
+          right = "▕";
+        };
+        section_separators =  {
+          left = "▌";
+          right = "▐";
+        };
         globalstatus = true;
         extensions = [
           "fzf"
@@ -68,11 +76,7 @@
             __unkeyed-1 = "progress";
           }
         ];
-        lualine_z = [
-          {
-            __unkeyed-1 = "location";
-          }
-        ];
+        lualine_z = [{}];
       };
     };
   };
