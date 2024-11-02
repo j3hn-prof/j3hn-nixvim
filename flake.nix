@@ -20,8 +20,8 @@
     flake-utils.lib.eachDefaultSystem (
       system: let
         nixvimLib = nixvim.lib.${system};
-				nixvimModule = { inherit pkgs; };
-				nixvimModule.module = import ./config;
+        nixvimModule = { inherit pkgs; };
+        nixvimModule.module = import ./config;
         neovim = nixvim.legacyPackages.${system}.makeNixvimWithModule nixvimModule;
         pkgs = import nixpkgs {inherit system;};
       in {

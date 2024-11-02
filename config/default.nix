@@ -8,16 +8,58 @@ in {
       ./lsps
     ]
     ++ nixFromDir ./plugins;
-  config.opts = {
+  opts = {
     clipboard = "unnamedplus";
-    #cmdheight = 0;
     cursorline = true;
+    cursorlineopt = "number";
+
+    pumblend = 0;
+    pumheight = 10;
+
+    expandtab = true;
+    shiftwidth = 2;
+    smartindent = true;
     tabstop = 2;
+    softtabstop = 2;
+
+    ignorecase = true;
+    smartcase = true;
+    mouse = "a";
+
     number = true;
     relativenumber = true;
-    mouse = "a";
-    numberwidth = 1;
-    scrolloff = 8;
-    shiftwidth = 2;
+    numberwidth = 2;
+    ruler = false;
+
+    signcolumn = "yes";
+    splitbelow = true;
+    splitright = true;
+    timeoutlen = 400;
+    splitkeep = "screen";
+    termguicolors = true;
+
+    conceallevel = 2;
+
+    undofile = true;
+
+    wrap = false;
+
+    virtualedit = "block";
+    winminwidth = 5;
+    fileencoding = "utf-8";
+    list = true;
+    smoothscroll = true;
+    scrolloff = 999;
+    fillchars = { eob = " "; };
+
+    #interval for writing swap file to disk, also used by gitsigns
+    updatetime = 250;
+
   };
+  extraLuaPackages = ps: with ps; [ luarocks ];
+  extraConfigLua = # lua
+    ''
+      vim.opt.whichwrap:append("<>[]hl")
+      vim.opt.listchars:append("space:")
+    '';
 }

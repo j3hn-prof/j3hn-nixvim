@@ -4,6 +4,6 @@
     enable = true;
     settings.style = "moon";
   };
-  opts.stc = "%s%=%{v:relnum ? v:relnum : v:lnum}│";
-  highlightOverride.CursorLineNr.bold = true;
+  # opts.stc = "%s%=%{v:relnum ? v:relnum : v:lnum}│";
+  # highlightOverride.CursorLineNr.bold = true;
 }
