@@ -52,14 +52,6 @@ in {
     scrolloff = 999;
     fillchars = { eob = " "; };
 
-    #interval for writing swap file to disk, also used by gitsigns
     updatetime = 250;
-
   };
-  extraLuaPackages = ps: with ps; [ luarocks ];
-  extraConfigLua = # lua
-    ''
-      vim.opt.whichwrap:append("<>[]hl")
-      vim.opt.listchars:append("space:")
-    '';
 }

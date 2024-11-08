@@ -3,7 +3,11 @@
   colorschemes.tokyonight = {
     enable = true;
     settings.style = "moon";
+    settings.styles = {
+      comments.italic = true;
+      functions.italic = true;
+      variables.italic = true;
+      keywords = { italic = true; bold = true; };
+    };
   };
-  # opts.stc = "%s%=%{v:relnum ? v:relnum : v:lnum}│";
-  # highlightOverride.CursorLineNr.bold = true;
 }

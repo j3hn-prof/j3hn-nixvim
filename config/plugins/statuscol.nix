@@ -1,5 +1,18 @@
 { helpers,...}:
 {
+  autoCmd = [
+    {
+      event = [ "BufEnter" "BufNew" ];
+      callback = (helpers.mkRaw ''
+        function()
+          local ft_ignore = { "dashboard", "neo-tree" }
+          if vim.tbl_contains(ft_ignore, vim.bo.filetype) then
+            vim.cmd("setlocal foldcolumn=0")
+          end
+        end
+      '' );
+    }
+  ];
   plugins.statuscol = {
     enable = true;
     settings = {
@@ -7,40 +20,13 @@
       ft_ignore = [ "dashboard" "neo-tree" ];
       segments = [
         {
-          click = "v:lua.ScFa";
-          text = [ (helpers.mkRaw "require('statuscol.builtin').foldfunc") ];
-        }
-        {
-          click = "v:lua.ScSa";
-          text = [ " %s" ];
+          text = [ "%s" ];
         }
         {
           click = "v:lua.ScLa";
-          text = [ (helpers.mkRaw "require('statuscol.builtin').lnumfunc") " " ];
+          text = [ (helpers.mkRaw ''"%=%{v:relnum ? v:relnum : v:lnum}▕▏"'') ];
         }
       ];
     };
-  };
-  plugins.nvim-ufo = {
-    enable = true;
-    settings = {
-      provider_selector = # lua
-        ''
-          function()
-            return { "lsp", "indent" }
-          end
-        '';
-      preview.mappings = {
-        close = "q";
-        switch = "K";
-      };
-    };
-  };
-  opts = {
-    foldcolumn = "1";
-    foldlevel = 99;
-    foldlevelstart = 99;
-    foldenable = true;
-    fillchars = (helpers.mkRaw "[[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]");
   };
 }
