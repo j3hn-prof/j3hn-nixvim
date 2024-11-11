@@ -61,7 +61,7 @@ in {
         mkLuaFunction
         ''
           if vim.bo.modified then
-          	vim.cmd('write')
+          	vim.cmd('silent write')
           	vim.api.nvim_echo({
           		{"Wrote out to file: ", "Normal"},
           		{vim.api.nvim_buf_get_name(0), "Bold"}
