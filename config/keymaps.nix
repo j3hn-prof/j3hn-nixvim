@@ -28,9 +28,23 @@ in {
         mkLuaFunction
         ''
           local current_buf = vim.api.nvim_get_current_buf()
-          vim.api.nvim_buf_delete(current_buf, { force = false })
+          if vim.api.nvim_buf_get_option(current_buf, 'modified') then
+            vim.api.nvim_echo({
+            {"This buffer is unsaved. Press 'q' to quit without saving.", "WarningMsg"}
+            }, true, {})
+            local char = vim.fn.getchar()
+            if char == vim.fn.char2nr('q') then
+              vim.api.nvim_buf_delete(current_buf, { force = true })
+            else
+              vim.api.nvim_echo({
+                {"Quit canceled. Buffer is still unsaved.", "Italic"}
+              }, true, {})
+            end
+          else
+            vim.api.nvim_buf_delete(current_buf, { force = false })
+          end
         '';
-      key = "<leader>x";
+      key = "<leader>q";
       options = {
         silent = true;
       };
@@ -55,10 +69,10 @@ in {
 
           if has_unsaved then
             vim.api.nvim_echo({
-            {"There are unsaved buffers. Press 'y' to quit without saving.", "WarningMsg"}
+            {"There are unsaved buffers. Press 'q' to quit without saving.", "WarningMsg"}
             }, true, {})
             local char = vim.fn.getchar()
-            if char == vim.fn.char2nr('y') then
+            if char == vim.fn.char2nr('q') then
               vim.cmd("quitall!")
             else
               vim.api.nvim_echo({
