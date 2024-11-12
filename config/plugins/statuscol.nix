@@ -1,23 +1,23 @@
 { helpers,...}:
 {
-  autoCmd = [
-    {
-      event = [ "BufEnter" "BufNew" ];
-      callback = (helpers.mkRaw ''
-        function()
-          local ft_ignore = { "dashboard", "neo-tree" }
-          if vim.tbl_contains(ft_ignore, vim.bo.filetype) then
-            vim.cmd("setlocal foldcolumn=0")
-          end
-        end
-      '' );
-    }
-  ];
+  # autoCmd = [
+  #   {
+  #     event = [ "BufEnter" "BufNew" ];
+  #     callback = (helpers.mkRaw ''
+  #       function()
+  #         local ft_ignore = { "dashboard", "oil" }
+  #         if vim.tbl_contains(ft_ignore, vim.bo.filetype) then
+  #           vim.cmd("setlocal foldcolumn=0")
+  #         end
+  #       end
+  #     '' );
+  #   }
+  # ];
   plugins.statuscol = {
     enable = true;
     settings = {
       relculright = true;
-      ft_ignore = [ "dashboard" "neo-tree" ];
+      ft_ignore = [ "dashboard" ];
       segments = [
         {
           text = [ "%s" ];

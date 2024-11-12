@@ -15,7 +15,6 @@
           "packer"
           "TelescopePrompt"
           "TelescopeResults"
-          "yaml"
         ];
       };
       indent = { char = "┆"; };
