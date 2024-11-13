@@ -7,6 +7,10 @@
       end
     '';
 in {
+  globals = {
+    mapleader = " ";
+    maplocalleader = " ";
+  };
   keymaps = [
     {
       # Oil Keymap

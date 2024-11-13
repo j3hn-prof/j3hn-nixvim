@@ -13,9 +13,12 @@ in {
     cursorline = true;
     cursorlineopt = "number";
     expandtab = true;
+    cmdheight = 0;
     shiftwidth = 2;
     smartindent = true;
     tabstop = 2;
+    timeout = false;
+    ttimeout = false;
     softtabstop = 2;
     ignorecase = true;
     smartcase = true;
@@ -26,7 +29,6 @@ in {
     signcolumn = "yes";
     splitbelow = true;
     splitright = true;
-    timeoutlen = 400;
     splitkeep = "screen";
     termguicolors = true;
     conceallevel = 2;
@@ -41,8 +43,6 @@ in {
     updatetime = 250;
   };
   globals = {
-    mapleader = " ";
-    maplocalleader = " ";
     have_nerd_font = false;
   };
 }
