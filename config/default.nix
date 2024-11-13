@@ -13,7 +13,6 @@ in {
     cursorline = true;
     cursorlineopt = "number";
     expandtab = true;
-    cmdheight = 0;
     shiftwidth = 2;
     smartindent = true;
     tabstop = 2;
