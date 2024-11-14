@@ -4,7 +4,7 @@
     enable = true;
     settings = {
       relculright = true;
-      ft_ignore = [ "dashboard" ];
+      ft_ignore = [ "dashboard" "oil" ];
       segments = [
         {
           text = [ "%s" ];

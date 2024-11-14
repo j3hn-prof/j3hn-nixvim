@@ -18,7 +18,7 @@ in {
         mkLuaFunction
         ''
           if vim.bo.filetype ~= "oil" then
-            vim.cmd("Oil")
+            require('oil').open_float(".")
           end
         '';
       key = "<leader>o";
