@@ -19,6 +19,7 @@ in {
         ''
           if vim.bo.filetype ~= "oil" then
             require('oil').open_float(".")
+            require('oil').open_preview(horizontal)
           end
         '';
       key = "<leader>o";

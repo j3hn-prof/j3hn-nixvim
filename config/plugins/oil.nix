@@ -3,9 +3,6 @@
     enable = true;
     settings = {
       columns = [
-        # {
-        #   __unkeyed = "name";
-        # }
         {
           __unkeyed = "permissions";
         }
@@ -25,7 +22,27 @@
       contain-cursor = "name";
       default_file_explorer = true;
       skip_confirmation_for_simple_edits = true;
-      win_options.signcolumn = "no"; 
+      win_options = {
+      };
+      float = {
+        max_height = 44;
+        max_width = 151;
+      };
     };
   };
+  autoCmd = [
+    {
+      callback.__raw = ''
+        function()
+          if vim.bo.filetype == "oil" then
+            vim.wo.relativenumber = true
+            vim.wo.cursorline = true
+            require('statuscol').setup()
+          end
+        end
+      '';
+      event = [ "BufWinEnter" ];
+      pattern = "*";
+    }
+  ];
 }
